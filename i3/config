@@ -1,0 +1,56 @@
+# i3 config file (v4)
+#
+# https://i3wm.org/docs/userguide.html
+
+# Global modifier (Win-key)
+set $mod Mod4
+
+# Include keybindings
+include ~/.config/i3/config.d/keybindings.conf
+
+font pango:DejaVu Sans Mono 10
+
+# Align window title
+title_align left
+
+# Border-style and size
+default_border normal 2
+default_floating_border normal 4
+
+# Colors
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+# Hide border on single-window workspaces
+hide_edge_borders smart
+
+# $mod+click to move floating window
+floating_modifier $mod
+
+# Define workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+workspace_auto_back_and_forth yes
+
+assign [instance="^outlook.office365.com$"] 9
+assign [instance="microsoft teams*"] 10
+
+for_window [class="^KeePassXC$"] floating enable
+
+for_window [all] title_window_icon padding 1px
+
+include ~/.config/i3/config.d/startup.conf
